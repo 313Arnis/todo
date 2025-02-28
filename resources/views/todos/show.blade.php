@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ asset("style.css") }}">
 </head>
 <body>
-    <h1>Sveiks laravel!</h1>
-    <a href = "/diaries">UZ diaries</a>
+<h1>{{ $todo->content }}</h1>
+<p>Izpildīts: {{ $todo->completed ? "Jā" : "Nē" }}</p>
 </body>
 </html>
