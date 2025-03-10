@@ -10,13 +10,22 @@
     @method('PUT')
     
     <label>
-      <input name="content" value="{{ $todo->content }}">
+      Saturs:
+      <input name="content" value="{{ old('content', $todo->content) }}">
     </label>
+    @error("content")
+      <p>{{ $message }}</p>
+    @enderror
+    
     <label>
-  Izpildīts:
-  <input name="completed" type="hidden" value="{{ $todo->completed }}">
-  <input name="completed" type="checkbox" value="{{ $todo->completed }}">   
-</label>
+      Izpildīts:
+      <input name="completed" type="hidden" value="0">
+      <input name="completed" type="checkbox" value="1" {{ old("completed", $todo->completed) ? 'checked' : '' }}
+    </label>
+    @error("completed")
+      <p style="color: red;">{{ $message }}</p>
+    @enderror
+
     <button type="submit">Saglabāt</button>
   </form>
 </x-layout>
